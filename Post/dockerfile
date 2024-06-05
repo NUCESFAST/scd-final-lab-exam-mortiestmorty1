@@ -1,8 +1,8 @@
 # Dockerfile for Posts Service
 FROM node:alpine
-WORKDIR /usr/src/posts
-COPY ./posts/package*.json ./
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-COPY ./posts .
+COPY . .
 EXPOSE 02293
 CMD ["node", "index.js"]

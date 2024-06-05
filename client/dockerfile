@@ -4,20 +4,20 @@ FROM node:alpine
 # Set the working directory in the Docker container
 WORKDIR /app
 
-# Change directory to client before copying files
-COPY client/package*.json ./
+# Copy package.json and package-lock.json (ensure they exist in the current directory)
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application source code from the client directory
-COPY client/ ./
+# Copy the rest of the application source code from the current directory
+COPY . .
 
-# Build the application
+# Build the application (make sure you have a build script defined in your package.json)
 RUN npm run build
 
-# Run the application
+# Run the application (adjust the command according to your package.json)
 CMD ["npm", "start"]
 
-# Expose the port the app runs on
+# Expose the port the app runs on (adjust according to your app's port)
 EXPOSE 3000
