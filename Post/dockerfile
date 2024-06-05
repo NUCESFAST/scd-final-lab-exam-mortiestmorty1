@@ -1,0 +1,8 @@
+# Dockerfile_20k-0229_posts
+FROM node:alpine
+WORKDIR /usr/src/posts
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 02293
+CMD ["node", "index.js"]

@@ -1,0 +1,8 @@
+# Dockerfile_20k-0229_auth
+FROM node:alpine
+WORKDIR /usr/src/auth
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 02291
+CMD ["node", "index.js"]
