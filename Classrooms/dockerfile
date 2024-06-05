@@ -1,8 +1,8 @@
-# Dockerfile_20k-0229_classroom
+# Dockerfile for Classroom Service
 FROM node:alpine
 WORKDIR /usr/src/classroom
-COPY package*.json ./
+COPY ./classroom/package*.json ./
 RUN npm install
-COPY . .
+COPY ./classroom .
 EXPOSE 02292
 CMD ["node", "index.js"]

@@ -1,8 +1,8 @@
-# Dockerfile_20k-0229_eventbus
+# Dockerfile for EventBus Service
 FROM node:alpine
 WORKDIR /usr/src/eventbus
-COPY package*.json ./
+COPY ./eventbus/package*.json ./
 RUN npm install
-COPY . .
+COPY ./eventbus .
 EXPOSE 02295
 CMD ["node", "index.js"]
